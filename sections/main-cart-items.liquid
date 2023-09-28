@@ -5,6 +5,9 @@
 {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
+{{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
+{{ 'product-theme.css' | asset_url | stylesheet_tag }}
+{{ 'product-theme-font.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   .section-{{ section.id }}-padding {
@@ -31,21 +34,16 @@
     <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
     <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a>
   </div>
-
   <div class="cart__warnings">
-    <h1 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h1>
-    <a href="{{ routes.all_products_collection_url }}" class="button">
-      {{ 'general.continue_shopping' | t }}
-    </a>
-
-    {%- if shop.customer_accounts_enabled and customer == null -%}
-      <h2 class="cart__login-title">{{ 'sections.cart.login.title' | t }}</h2>
-      <p class="cart__login-paragraph">
-        {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
-      </p>
-    {%- endif -%}
+    <div class="empty-cart">
+      <div class="container">
+        {% render 'cart-empty-icon' %}
+        <h5 class="fw-bold mb-1" a-id="cart-ce-th">{{ 'sections.cart.empty' | t }}</h5>
+        <p class="mb-3" a-id="cart-ce-st">{{ 'sections.cart.empty-msg' | t }}</p>
+        <button type="button" a-id="cart-ce-cs" class="btn btn-primary">{{ 'general.continue_shopping' | t }}</button>
+      </div>
+    </div>
   </div>
-
   <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
     <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
       <div class="js-contents">
