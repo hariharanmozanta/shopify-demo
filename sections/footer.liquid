@@ -174,6 +174,7 @@
                   {% render 'icon-truck' %}
                 </div>
                 <div class="title m-1">FREE SHIPPING</div>
+                <p>On all UA order or order above $100</p>
               </a>
             </div>
             <div class="col-4">
@@ -182,6 +183,9 @@
                   {% render 'icon-cart-load' %}
                 </div>
                 <div class="title m-1" style="text-align: center;">30 DAYS RETURN</div>
+                <div class="pl-2">
+                  <p style="text-align: center;">Simply return it within 30 days for an exchange</p>
+                </div>
               </a>
             </div>
             <div class="col-4">
@@ -190,10 +194,10 @@
                   {% render 'icon-support' %}
                 </div>
                 <div class="title m-1">SUPPORT 24/7</div>
+                <p>Contact us 24 hours a day, 7 days a week</p>
               </a>
             </div>
           </div>
-
           {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
             <div class="footer__follow-on-shop">
               {% comment %} TODO: enable theme-check once `login_button` is accepted as valid filter {% endcomment %}
