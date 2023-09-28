@@ -40,7 +40,13 @@
         {% render 'cart-empty-icon' %}
         <h5 class="fw-bold mb-1" a-id="cart-ce-th">{{ 'sections.cart.empty' | t }}</h5>
         <p class="mb-3" a-id="cart-ce-st">{{ 'sections.cart.empty-msg' | t }}</p>
-        <button type="button" a-id="cart-ce-cs" class="btn btn-primary">{{ 'general.continue_shopping' | t }}</button>
+        <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
+          <a href="{{ routes.all_products_collection_url }}" class="underlined-link">
+            <button type="button" a-id="cart-ce-cs" class="btn btn-primary">
+              {{ 'general.continue_shopping' | t }}
+            </button>
+          </a>
+        </a>
       </div>
     </div>
   </div>
