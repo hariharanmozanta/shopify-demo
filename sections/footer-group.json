@@ -2,15 +2,6 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
-    "73a9f64e-ccfa-4fd0-8948-07becdc92633": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "",
-        "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
-    },
     "footer": {
       "type": "footer",
       "settings": {
@@ -30,7 +21,6 @@
     }
   },
   "order": [
-    "73a9f64e-ccfa-4fd0-8948-07becdc92633",
     "footer"
   ]
 }
