@@ -694,7 +694,7 @@ summary::-webkit-details-marker {
     z-index: 4;
   }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .facets .disclosure-has-popup[open]>summary+* {
+  .facets .disclosure-has-popup[open]>summary+* {
     z-index: 2;
   }
 }
@@ -1212,8 +1212,8 @@ button.shopify-payment-button__button--unbranded,
   --shadow-opacity: var(--buttons-shadow-opacity);
   --shadow-visible: var(--buttons-shadow-visible);
   --border-offset: var(--buttons-border-offset);
-    /* reduce radius edge artifacts */
-  --border-opacity: calc(1 - var(--buttons-border-opacity));
+  /* reduce radius edge artifacts */
+  /* --border-opacity: calc(1 - var(--buttons-border-opacity)); */
   border-radius: var(--buttons-radius-outset);
   position: relative;
 }
@@ -2312,26 +2312,26 @@ product-info .loading-overlay:not(.hidden)~*,
 
 @keyframes translateAnnouncementSlideIn {
   0% {
-      opacity: 0;
-      transform: translateX(var(--announcement-translate-from))
-    }
-  
-    100% {
-      opacity: 1;
-      transform: translateX(0)
-    }
+    opacity: 0;
+    transform: translateX(var(--announcement-translate-from))
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0)
+  }
 }
 
 @keyframes translateAnnouncementSlideOut {
   0% {
-      opacity: 1;
-      transform: translateX(0)
-    }
-  
-    100% {
-      opacity: 0;
-      transform: translateX(var(--announcement-translate-to))
-    }
+    opacity: 1;
+    transform: translateX(0)
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(var(--announcement-translate-to))
+  }
 }
 
 /* section-header */
@@ -2633,13 +2633,14 @@ menu-drawer+.header__search {
 }
 
 @media screen and (min-width: 990px) {
-.header:not(.header--top-center) *>.header__search,
+
+  .header:not(.header--top-center) *>.header__search,
   .header--top-center>.header__search {
     display: inline-flex;
   }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .header:not(.header--top-center)>.header__search,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .header--top-center *>.header__search {
+  .header:not(.header--top-center)>.header__search,
+  .header--top-center *>.header__search {
     display: none;
   }
 }
@@ -2793,7 +2794,7 @@ details[open]>.header__submenu {
     justify-self: center;
   }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .header--top-center .header__inline-menu>.list-menu--inline {
+  .header--top-center .header__inline-menu>.list-menu--inline {
     justify-content: center;
   }
 
@@ -3272,7 +3273,8 @@ details-disclosure>details {
 /* Animations */
 
 @media (prefers-reduced-motion: no-preference) {
-.animate--ambient>img,
+
+  .animate--ambient>img,
   .animate--ambient>svg {
     animation: animateAmbient 30s linear infinite;
   }
@@ -3365,7 +3367,7 @@ details-disclosure>details {
   .animate--hover-3d-lift .shopify-payment-button__button:hover,
   .animate--hover-3d-lift .deferred-media:hover .deferred-media__poster-button {
     transition: transform var(--duration-extended) ease, box-shadow var(--duration-long) ease;
-      /* Slow the card transition speed while hover is active. */
+    /* Slow the card transition speed while hover is active. */
     transform: rotate(1deg);
     box-shadow: -1rem -1rem 1rem -1rem rgba(0, 0, 0, 0.05), 1rem 1rem 1rem -1rem rgba(0, 0, 0, 0.05),
       0 0 0.5rem 0 rgba(255, 255, 255, 0), 0 2rem 3.5rem -2rem rgba(0, 0, 0, 0.5);
@@ -3373,13 +3375,13 @@ details-disclosure>details {
 
   .animate--hover-3d-lift .deferred-media:hover .deferred-media__poster-button {
     transform: translate(-50%, -50%) scale(1.05);
-      /* Apply a specialized transform to the video play button. */
+    /* Apply a specialized transform to the video play button. */
   }
 
   .animate--hover-3d-lift .collage__item .card-wrapper:hover .card--card,
   .animate--hover-3d-lift .collage__item .card-wrapper:hover .card--standard .card__inner {
     transform: rotate(0.5deg);
-      /* Less intense rotation for collage items. */
+    /* Less intense rotation for collage items. */
   }
 
   .animate--hover-3d-lift .product-grid .grid__item:hover,
@@ -3388,12 +3390,12 @@ details-disclosure>details {
   .animate--hover-3d-lift .blog-articles .article:hover,
   .animate--hover-3d-lift .complementary-slide li:hover {
     z-index: 2;
-      /* Make sure the hovered card is the topmost card. */
+    /* Make sure the hovered card is the topmost card. */
   }
 
   .animate--hover-3d-lift .product-grid {
     isolation: isolate;
-      /* Ensure z-index changes here don't negatively effect other UI stacking. */
+    /* Ensure z-index changes here don't negatively effect other UI stacking. */
   }
 
   .animate--hover-3d-lift .card-wrapper .card--shape.card--standard:not(.card--text) .card__inner {
@@ -3403,13 +3405,13 @@ details-disclosure>details {
 
   .animate--hover-3d-lift .card-wrapper:hover .card--shape.card--standard:not(.card--text) .card__inner {
     transition: transform calc(2 * var(--duration-extended)) ease, filter var(--duration-long) ease;
-      /* Slow the card transition speed while hover is active. */
+    /* Slow the card transition speed while hover is active. */
     filter: drop-shadow(0rem 2rem 2rem rgba(0, 0, 0, 0.15)) drop-shadow(0rem 1rem 1rem rgba(0, 0, 0, 0.15));
   }
 
   .animate--hover-3d-lift .card-wrapper:hover .card--card:after,
   .animate--hover-3d-lift .card-wrapper:hover .card--standard .card__inner:after,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .animate--hover-3d-lift .card-wrapper:hover .card--shape.card--standard:not(.card--text) .card__inner .card__media:before {
+  .animate--hover-3d-lift .card-wrapper:hover .card--shape.card--standard:not(.card--text) .card__inner .card__media:before {
     background-image: var(--easter-egg);
     background-size: 250px 250px;
     mix-blend-mode: color-dodge;
@@ -3417,7 +3419,7 @@ details-disclosure>details {
     z-index: 2;
   }
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .animate--hover-3d-lift .card-wrapper:hover .card--shape.card--standard:not(.card--text) .card__inner .card__media:before {
+  .animate--hover-3d-lift .card-wrapper:hover .card--shape.card--standard:not(.card--text) .card__inner .card__media:before {
     content: '';
     position: absolute;
     top: 0;
@@ -3442,8 +3444,8 @@ details-disclosure>details {
     background-position: 90% 0;
     background-repeat: no-repeat;
     background-image: linear-gradient(135deg,
-          rgba(255, 255, 255, 0) 45%,
-          rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0) 45%,
+        rgba(255, 255, 255, 1) 50%,
         rgba(255, 255, 255, 0) 55%);
   }
 
@@ -3500,150 +3502,219 @@ details-disclosure>details {
   .animate--hover-vertical-lift .customer button:not([disabled]):hover:after,
   .animate--hover-vertical-lift .shopify-payment-button__button:not([disabled]):hover:after {
     --border-offset: 0.3px;
-      /* Default is 1.3px as defined above in this file. This removes 1px to prevent the border from growing on buttons when this effect is on.  */
-      box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) rgba(var(--color-button-text), var(--border-opacity)),
+    /* Default is 1.3px as defined above in this file. This removes 1px to prevent the border from growing on buttons when this effect is on.  */
+    box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset)) rgba(var(--color-button-text), var(--border-opacity)),
       0 0 0 var(--buttons-border-width) rgba(var(--color-button), var(--alpha-button-background));
   }
 
   .animate--hover-vertical-lift .button:not([disabled]).button--secondary:hover:after {
     --border-offset: 0px;
-      /* Prevent the border from growing on buttons when this effect is on. */
-    }
-    }
-    
-    .col-auto {
-      flex: 0 0 auto;
-      width: auto;
-    }
-    
-    .justify-content-center {
-      justify-content: center !important;
-    }
-    
-    .row {
-      --bs-gutter-x: 1.5rem;
-      --bs-gutter-y: 0;
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: calc(-1 * var(--bs-gutter-y));
-      margin-right: calc(-.5 * var(--bs-gutter-x));
-      margin-left: calc(-.5 * var(--bs-gutter-x));
-    }
-    
-    .container-fluid,
-    .container-sm,
-    .container-md,
-    .container-lg,
-    .container-xl,
-    .container {
-      padding-right: 1.5rem;
-      padding-left: 1.5rem;
-    }
-    
-    @media (min-width: 1440px) {
-    
-      .container,
-      .container-sm,
-      .container-md,
-      .container-lg,
-      .container-xl {
-        max-width: 1440px;
-      }
-    }
-    
-    @media (min-width: 1024px) {
-    
-      .container,
-      .container-sm,
-      .container-md,
-      .container-lg {
-        max-width: 100%;
-      }
-    }
-    
-    @media (min-width: 768px) {
-    
-      .container,
-      .container-sm,
-      .container-md {
-        max-width: 100%;
-      }
-    }
-    
-    @media (min-width: 360px) {
-    
-      .container,
-      .container-sm {
-        max-width: 100%;
-      }
-    }
-    
-    .mb-3 {
-      margin-bottom: 1.5rem !important;
-    }
-    
-    .mx-auto {
-      margin-right: auto !important;
-      margin-left: auto !important;
-    }
-    
-    .form-control {
-      display: block;
-      width: 100%;
-      padding: 0.6875rem 1rem;
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.5;
-      color: #000;
-      background-color: #fff;
-      background-clip: padding-box;
-      border: 1px solid #ccc;
-      appearance: none;
-      border-radius: 1.5rem;
-      transition: none;
-    }
-    
-    input,
-    button,
-    select,
-    optgroup,
-    textarea {
-      margin: 0;
-      font-family: inherit;
-      font-size: inherit;
-      line-height: inherit;
-    }
-    
-    button:not(:disabled),
-    [type="button"]:not(:disabled),
-    [type="reset"]:not(:disabled),
-    [type="submit"]:not(:disabled) {
-      cursor: pointer;
-    }
-    
-    .w-100 {
-      width: 100% !important;
-    }
-                .d-block {
-                  display: block !important;
-        
-                  .py-5 {
-                    padding-top: 2.5rem !important;
-                    padding-bottom: 2.5rem !important;
-        
-                .btn-primary {
-                  --bs-btn-color: #fff;
-                  --bs-btn-bg: #0D0D0D;
-                  --bs-btn-border-color: #0D0D0D;
-                  --bs-btn-hover-color: #fff;
-                  --bs-btn-hover-bg: #0b0b0b;
-                  --bs-btn-hover-border-color: #0a0a0a;
-                  --bs-btn-focus-shadow-rgb: 49, 49, 49;
-                  --bs-btn-active-color: #fff;
-                  --bs-btn-active-bg: #0a0a0a;
-                  --bs-btn-active-border-color: #0a0a0a;
-                  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-                  --bs-btn-disabled-color: #fff;
-                  --bs-btn-disabled-bg: #0D0D0D;
-                  --bs-btn-disabled-border-color: #0D0D0D;
-                }
+    /* Prevent the border from growing on buttons when this effect is on. */
+  }
+}
+
+.col-auto {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
+
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-.5 * var(--bs-gutter-x));
+  margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+
+.container-fluid,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl,
+.container {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+@media (min-width: 1440px) {
+
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl {
+    max-width: 1440px;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+
+  .container,
+  .container-sm,
+  .container-md {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 360px) {
+
+  .container,
+  .container-sm {
+    max-width: 100%;
+  }
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem !important;
+}
+
+.mb-3 {
+  margin-bottom: 1.5rem !important;
+}
+
+.mt-4 {
+  margin-top: 2rem !important;
+}
+
+.btn-link {
+  font-weight: 500;
+}
+
+.mx-auto {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.6875rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  appearance: none;
+  border-radius: 1.5rem;
+  transition: none;
+}
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button:not(:disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled) {
+  cursor: pointer;
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.py-5 {
+  padding-top: 2.5rem !important;
+  padding-bottom: 2.5rem !important;
+}
+
+.btn-link {
+  --bs-btn-font-weight: 400;
+  --bs-btn-color: #999;
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-border-color: transparent;
+  --bs-btn-disabled-color: #666;
+  --bs-btn-disabled-border-color: transparent;
+  --bs-btn-box-shadow: none;
+  --bs-btn-focus-shadow-rgb: 75, 99, 145;
+  text-decoration: none;
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #0D0D0D;
+  --bs-btn-border-color: #0D0D0D;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #0b0b0b;
+  --bs-btn-hover-border-color: #0a0a0a;
+  --bs-btn-focus-shadow-rgb: 49, 49, 49;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #0a0a0a;
+  --bs-btn-active-border-color: #0a0a0a;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #0D0D0D;
+  --bs-btn-disabled-border-color: #0D0D0D;
+}
+
+.btn {
+  --border-offset: none;
+  border-radius: 2.5rem;
+  --bs-btn-padding-x: 1.5rem;
+  --bs-btn-padding-y: .6875rem;
+  --bs-btn-font-family: ;
+  --bs-btn-font-size: 1rem;
+  --bs-btn-font-weight: 600;
+  --bs-btn-line-height: 1.5;
+  --bs-btn-color: #000;
+  --bs-btn-bg: transparent;
+  --bs-btn-border-width: 1px;
+  --bs-btn-border-color: transparent;
+  --bs-btn-border-radius: 1.5rem;
+  --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+  --bs-btn-disabled-opacity: .65;
+  --bs-btn-focus-box-shadow: 0 0 0 none rgba(var(--bs-btn-focus-shadow-rgb), .5);
+  display: inline-block;
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+  font-family: var(--bs-btn-font-family);
+  font-size: var(--bs-btn-font-size);
+  font-weight: var(--bs-btn-font-weight);
+  line-height: var(--bs-btn-line-height);
+  color: var(--bs-btn-color);
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+  border-radius: var(--bs-btn-border-radius);
+  background-color: var(--bs-btn-bg);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.text-center {
+  text-align: center !important;
+}

@@ -21,39 +21,26 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
         <div class="col-auto">
           <div class="signin-card card">
             <div class="card-body">
-              <div class="signin-top mb-3">
-                <div class="brand mx-auto mb-3">
-                  <div class="mx-auto" style="width: 48px;"><svg class="icon fill-primary w-100"
-                      xmlns="http://www.w3.org/2000/svg" width="48" height="48.365" viewBox="0 0 48 48.365">
-                      <g id="Group_872" data-name="Group 872" transform="translate(-1623 -291)">
-                        <rect id="Rectangle_1138" data-name="Rectangle 1138" width="48" height="48"
-                          transform="translate(1623 291)" fill="none"></rect>
-                        <path id="Path_948" data-name="Path 948"
-                          d="M23.166,16.389a2.2,2.2,0,1,1-2.241,2.2,2.22,2.22,0,0,1,2.241-2.2m20.166,6.6c0,12.2-8.6,23.611-20.166,26.381C11.6,46.6,3,35.185,3,22.984V9.794L23.166,1,43.332,9.794V22.984M23.166,11.992a6.66,6.66,0,0,0-6.722,6.6,6.583,6.583,0,0,0,4.481,6.222V38.373h4.481v-4.4h4.481v-4.4H25.407V24.809a6.583,6.583,0,0,0,4.481-6.222A6.66,6.66,0,0,0,23.166,11.992Z"
-                          transform="translate(1623.834 290)"></path>
-                      </g>
-                    </svg></div>
-                </div>
-                <h5 class="title">Welcome Back, Let’s Sign in</h5>
-              </div>
               <h1 id="recover" tabindex="-1">
-                {{ 'customer.recover_password.title' | t }}
+                {% comment %} {{ 'customer.recover_password.title' | t }} {% endcomment %}
               </h1>
               <div>
-                <p>
+                {% comment %} <p>
                   {{ 'customer.recover_password.subtext' | t }}
-                </p>
-
+                </p> {% endcomment %}
+                <div class="text-center"><img alt="" loading="lazy" width="300" height="238" decoding="async" data-nimg="1" class="reset-image" src="../assets/reset-password.svg" style="color: transparent;"><h5 class="fw-semibold mt-4 mb-2" a-id="fp-s1fop-t"> Reset Your Password</h5><p class="mt-1 mb-3">Kindly provide the Email address to be used for resetting your password.</p></div>
                 {%- form 'recover_customer_password' -%}
                 {% assign recover_success = form.posted_successfully? %}
-                <div class="field">
-                  <input type="email" value="" name="email" id="RecoverEmail" autocorrect="off" autocapitalize="off"
+                {% comment %} <div class="field"> {% endcomment %}
+                <div class="mb-3">
+                  <label class="form-label">Email address <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" value="" name="email" id="RecoverEmail" autocorrect="off" autocapitalize="off"
                     autocomplete="email" {% if form.errors %} aria-invalid="true"
                     aria-describedby="RecoverEmail-email-error" autofocus {% endif %}
-                    placeholder="{{ 'customer.login_page.email' | t }}">
-                  <label for="RecoverEmail">
+                    placeholder="*******38@gmail.com">
+                  {% comment %} <label for="RecoverEmail">
                     {{ 'customer.login_page.email' | t }}
-                  </label>
+                  </label> {% endcomment %}
                 </div>
                 {%- if form.errors -%}
                 <small id="RecoverEmail-email-error" class="form__message">
@@ -70,14 +57,14 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
                   {{ form.errors.messages.form }}
                 </small>
                 {%- endif -%}
-
-                <button>
+                <div class="mt-4">
+                <button class="mb-1 btn btn-primary d-block w-100" style="--border-offset: none;border-radius: 2.5rem;">
                   {{ 'customer.login_page.submit' | t }}
                 </button>
-
-                <a href="#login">
+                <a class="btn btn-link d-block w-100" href="#login">
                   {{ 'customer.login_page.cancel' | t }}
                 </a>
+              </div>
                 {%- endform -%}
               </div>
 
@@ -115,6 +102,21 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
                 </h2>
                 {{ form.errors | default_errors }}
                 {%- endif -%}
+                <div class="signin-top mb-3">
+                  <div class="brand mx-auto mb-3">
+                    <div class="mx-auto" style="width: 48px;"><svg class="icon fill-primary w-100"
+                        xmlns="http://www.w3.org/2000/svg" width="48" height="48.365" viewBox="0 0 48 48.365">
+                        <g id="Group_872" data-name="Group 872" transform="translate(-1623 -291)">
+                          <rect id="Rectangle_1138" data-name="Rectangle 1138" width="48" height="48"
+                            transform="translate(1623 291)" fill="none"></rect>
+                          <path id="Path_948" data-name="Path 948"
+                            d="M23.166,16.389a2.2,2.2,0,1,1-2.241,2.2,2.22,2.22,0,0,1,2.241-2.2m20.166,6.6c0,12.2-8.6,23.611-20.166,26.381C11.6,46.6,3,35.185,3,22.984V9.794L23.166,1,43.332,9.794V22.984M23.166,11.992a6.66,6.66,0,0,0-6.722,6.6,6.583,6.583,0,0,0,4.481,6.222V38.373h4.481v-4.4h4.481v-4.4H25.407V24.809a6.583,6.583,0,0,0,4.481-6.222A6.66,6.66,0,0,0,23.166,11.992Z"
+                            transform="translate(1623.834 290)"></path>
+                        </g>
+                      </svg></div>
+                  </div>
+                  <h5 class="title">Welcome Back, Let’s Sign in</h5>
+                </div>
                 <div class="mb-3">
                   <label for="username" class="form-label">Email address/Mobile number <span class="text-danger">*</span></label>
                   <!-- <div class="field"> -->
@@ -130,8 +132,8 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
                   <!-- <div class="field"> -->
                     <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
                     <input type="password" class="form-control" name="customer[password]" id="CustomerPassword"
-                      autocomplete="current-password" {% if form.errors contains 'form' %} aria-invalid="true" {% endif
-                      %}>
+                      autocomplete="current-password" {% if form.errors contains 'form' %} aria-invalid="true" >
+                      {% endif %}
                     <!-- <label for="CustomerPassword">
                       {{ 'customer.login_page.password' | t }}
                     </label> -->
@@ -146,7 +148,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
                 </div>
                 </div>
                 <div class="mb-3">
-                <button class="btn btn-primary d-block w-100">
+                <button class="submitBtn btn-primary d-block w-100" style="--border-offset: none;border-radius: 2.5rem;" >
                   {{ 'customer.login_page.sign_in' | t }}
                 </button>
                 </div>
