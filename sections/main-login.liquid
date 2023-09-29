@@ -37,7 +37,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
                   <input type="email" class="form-control" value="" name="email" id="RecoverEmail" autocorrect="off" autocapitalize="off"
                     autocomplete="email" {% if form.errors %} aria-invalid="true"
                     aria-describedby="RecoverEmail-email-error" autofocus {% endif %}
-                    placeholder="*******38@gmail.com">
+                    placeholder="*******38@gmail.com" required>
                   {% comment %} <label for="RecoverEmail">
                     {{ 'customer.login_page.email' | t }}
                   </label> {% endcomment %}
@@ -86,7 +86,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
                 {%- endif -%}
                 {%- form 'customer_login', novalidate: 'novalidate' -%}
                 {%- if form.errors -%}
-                <h2 class="form__message" tabindex="-1" autofocus>
+                <h5 class="form__message" tabindex="-1">
                   <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>
                   <svg aria-hidden="true" focusable="false" viewBox="0 0 13 13">
                     <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2" />
@@ -99,7 +99,7 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
                       fill="white" stroke="#EB001B" stroke-width="0.7">
                   </svg>
                   {{ 'templates.contact.form.error_heading' | t }}
-                </h2>
+                </h5>
                 {{ form.errors | default_errors }}
                 {%- endif -%}
                 <div class="signin-top mb-3">
@@ -129,15 +129,12 @@ padding-bottom: {{ section.settings.padding_bottom }}px;
                 </div>
                 <div class="mb-3">
                   {%- if form.password_needed -%}
-                  <!-- <div class="field"> -->
+                  {% comment %} <div class="field"> {% endcomment %}
                     <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
                     <input type="password" class="form-control" name="customer[password]" id="CustomerPassword"
                       autocomplete="current-password" {% if form.errors contains 'form' %} aria-invalid="true" >
                       {% endif %}
-                    <!-- <label for="CustomerPassword">
-                      {{ 'customer.login_page.password' | t }}
-                    </label> -->
-                  <!-- </div> -->
+                  {% comment %} </div> {% endcomment %}
                 </div>
                 <div class="mb-3">
                   <div class="justify-content-md-between row">
