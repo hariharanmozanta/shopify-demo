@@ -129,6 +129,14 @@
     "content_for_index": [
 
     ],
+    "blocks": {
+      "14070305384974036441": {
+        "type": "shopify:\/\/apps\/quick-social-login\/blocks\/app-embed\/835209bc-8680-493e-b34a-6dd763a16101",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    },
     "color_schemes": {
       "background-1": {
         "settings": {
