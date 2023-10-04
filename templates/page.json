@@ -7,19 +7,9 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
-    },
-    "c078951f-9995-4b51-8a57-0eb412a415dd": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<h1 id=\"recover\" tabindex=\"-1\">\n                {% comment %} {{ 'customer.recover_password.title' | t }} {% endcomment %}\n              <\/h1>\n              <div class=\"mx-auto col-md-6 col-lg-4\">\n                {% comment %} <p>\n                  {{ 'customer.recover_password.subtext' | t }}\n                <\/p> {% endcomment %}\n                <div class=\"text-center\"><img alt=\"\" loading=\"lazy\" width=\"300\" height=\"238\" decoding=\"async\" data-nimg=\"1\" class=\"reset-image\" src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0830\/8608\/2340\/files\/reset-password.svg?v=1696408482\" style=\"color: transparent;\"><h5 class=\"fw-semibold mt-4 mb-2\" a-id=\"fp-s1fop-t\"> Reset Your Password<\/h5><p class=\"mt-1 mb-3\">Kindly provide the Email address to be used for resetting your password.<\/p><\/div>\n                {%- form 'recover_customer_password' -%}\n                {% assign recover_success = form.posted_successfully? %}\n                {% comment %} <div class=\"field\"> {% endcomment %}\n                <div class=\"mb-3\">\n                  <label class=\"form-label\">Email address <span class=\"text-danger\">*<\/span><\/label>\n                  <input type=\"email\" class=\"form-control\" value=\"\" name=\"email\" id=\"RecoverEmail\" autocorrect=\"off\" autocapitalize=\"off\"\n                    autocomplete=\"email\" {% if form.errors %} aria-invalid=\"true\"\n                    aria-describedby=\"RecoverEmail-email-error\" autofocus {% endif %}\n                    placeholder=\"*******38@gmail.com\" required>\n                  {% comment %} <label for=\"RecoverEmail\">\n                    {{ 'customer.login_page.email' | t }}\n                  <\/label> {% endcomment %}\n                <\/div>\n                {%- if form.errors -%}\n                <small id=\"RecoverEmail-email-error\" class=\"form__message\">\n                  <svg aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 13 13\">\n                    <circle cx=\"6.5\" cy=\"6.50049\" r=\"5.5\" stroke=\"white\" stroke-width=\"2\" \/>\n                    <circle cx=\"6.5\" cy=\"6.5\" r=\"5.5\" fill=\"#EB001B\" stroke=\"#EB001B\" stroke-width=\"0.7\" \/>\n                    <path\n                      d=\"M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z\"\n                      fill=\"white\" \/>\n                    <path\n                      d=\"M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z\"\n                      fill=\"white\" stroke=\"#EB001B\" stroke-width=\"0.7\">\n                  <\/svg>\n                  {{ form.errors.messages.form }}\n                <\/small>\n                {%- endif -%}\n                <div class=\"mt-4\">\n                <button class=\"mb-1 btn btn-primary d-block w-100\" style=\"--border-offset: none;border-radius: 2.5rem;\">\n                  {{ 'customer.login_page.submit' | t }}\n                <\/button>\n                <a class=\"btn btn-link d-block w-100\" href=\"\/account\/login\">\n                  {{ 'customer.login_page.cancel' | t }}\n                <\/a>\n              <\/div>\n                {%- endform -%}\n              <\/div>",
-        "color_scheme": "",
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
     }
   },
   "order": [
-    "main",
-    "c078951f-9995-4b51-8a57-0eb412a415dd"
+    "main"
   ]
 }
