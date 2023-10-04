@@ -3718,3 +3718,8 @@ button:not(:disabled),
 .text-center {
   text-align: center !important;
 }
+
+.form-label {
+  margin-bottom: .5rem;
+  font-size: 14px;
+}
