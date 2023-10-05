@@ -85,6 +85,7 @@
                       {% endif %}
                       autocomplete="given-name"
                       placeholder="Eg.John Doe"
+                      required
                     >
                   </div>
                   {% comment %}
@@ -123,6 +124,7 @@
                         aria-describedby="RegisterForm-email-error"
                       {% endif %}
                       placeholder="{{ 'customer.register.email' | t }}"
+                      required
                     >
                   </div>
                   {%- if form.errors contains 'email' -%}
@@ -136,18 +138,19 @@
                   {%- endif -%}
                   <div class="mb-3">
                     <label for="password" class="d-flex align-items-center form-label"
-                      >Password <span class="text-danger">&nbsp;*</span></label
+                      >Phone Number<span class="text-danger">&nbsp;*</span></label
                     >
                     <input
                       type="text"
                       class="form-control"
-                      name="customer[Number]"
-                      id="RegisterForm-Number"
-                      {% if form.last_name %}
-                        value="{{ form.last_name }}"
+                      name="customer[phone_number]"
+                      id="phone_number"
+                      {% if form.phone_number %}
+                        value="{{ form.phone_number }}"
                       {% endif %}
                       autocomplete="family-name"
                       placeholder="Phone Number"
+                      required
                     >
                   </div>
                   <div class="mb-3">
@@ -165,6 +168,7 @@
                         aria-describedby="RegisterForm-password-error"
                       {% endif %}
                       placeholder="{{ 'customer.register.password' | t }}"
+                      required
                     >
                   </div>
                   {%- if form.errors contains 'password' -%}
