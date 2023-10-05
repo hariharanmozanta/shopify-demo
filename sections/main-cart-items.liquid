@@ -67,43 +67,48 @@
     </div>
   </div>
     {%- for item in cart.items -%}
-    
     <div class="card">
   <div class="card-body">
     <div class="g-3 row">
       <div class="col-md-6">
         <div class="row">
           <div class="col-auto">
+           {% if item.image %}
             <div class="item-image">
               <picture>
                 <img src="{{ item.image | image_url: width: '88 34', height: '100.65' }}" alt="" >
               </picture>
             </div>
+             {% endif %}
           </div>
           <div class="col">
             <div class="item-detail">
-              <a href=" " class="title link secondary"> {{ item.product.vendor }}</a>
+          <p class="title link secondary">{{ item.product.title }}</p>
+               {%- if item.product.has_only_default_variant == false -%}
               {%- for option in item.options_with_values -%}
                             <div class="product-option">
+                            {%- if option.name != empty -%}
                               <dt>{{ option.name }}:</dt>
                               <dd>{{ option.value }}</dd>
+                               {%- endif -%}
                             </div>
-                          {%- endfor -%}
+               {%- endfor -%}
+                 {%- endif -%}
             </div>
           </div>
         </div>
       </div>
       <div class="col-6 col-md-3">
-<quantity-input class="cart-quantity">
-        <div class="qty-panel ms-0 input-group">
-                             <button type="button" a-id="cart-cis-i1-qs-bmi" class="btn btn-outline-light-smoke btn-sm">
+ <quantity-input class="cart-quantity">
+  <div class="qty-panel ms-0 input-group">
+                            <button class="btn btn-outline-light-smoke btn-sm no-js-hidden" name="minus" type="button">
                               <span class="visually-hidden">
                                 {{- 'products.product.quantity.decrease' | t: product: item.product.title | escape -}}
                               </span>
                               {% render 'icon-minus' %}
                             </button>
                             <input
-                             class="form-control-sm form-control"
+                               class="form-control-sm form-control"
                               data-quantity-variant-id="{{ item.variant.id }}"
                               type="number"
                               name="updates[]"
@@ -120,16 +125,16 @@
                               id="Quantity-{{ item.index | plus: 1 }}"
                               data-index="{{ item.index | plus: 1 }}"
                             >
-                            
-                            <button class="no-js-hidden btn btn-outline-light-smoke btn-sm" name="plus" type="button">
+                            {% comment %} class="no-js-hidden btnbtn-sm"  {% endcomment %}
+                            <button class=" quantity__button  no-js-hidden btn btn-outline-light-smoke btn-sm" name="plus" type="button">
                               <span class="visually-hidden">
                                 {{- 'products.product.quantity.increase' | t: product: item.product.title | escape -}}
                               </span>
                               {% render 'icon-plus' %}
                             </button>
-        </div>
-
+                            </div>
                           </quantity-input>
+  
       </div>
       <div class="item-price col-6 col-md-3">   {{ item.final_line_price | money }} <div class="product-price sm">
           <del>$450</del>
@@ -272,9 +277,9 @@
     <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">
       {{ 'accessibility.loading' | t }}
     </p>
-    
   </form>
 </cart-items>
+<hr>
   {% include  'cart-footer' %}
 {% schema %}
 {
