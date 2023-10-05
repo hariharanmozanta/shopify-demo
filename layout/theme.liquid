@@ -291,6 +291,10 @@
     </ul>
 
     <script>
+      
+      
+      
+      
       window.shopUrl = '{{ request.origin }}';
       window.routes = {
         cart_add_url: '{{ routes.cart_add_url }}',
@@ -329,8 +333,14 @@
         recipientFormExpanded: `{{ 'recipient.form.expanded' | t }}`,
         recipientFormCollapsed: `{{ 'recipient.form.collapsed' | t }}`,
       };
-    </script>
 
+
+    </script>
+    <style>
+      nav.pagination {
+          display: flow-root !important;
+        }
+    </style>
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
