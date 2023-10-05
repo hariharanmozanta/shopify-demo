@@ -141,10 +141,10 @@
                       >Phone Number<span class="text-danger">&nbsp;*</span></label
                     >
                     <input
-                      type="phone_number"
+                      type="text"
                       class="form-control"
-                      name="customer[phone_number]"
-                      id="phone_number"
+                      name="customer[note][Phone]"
+                      id="Phone"
                       {% if form.phone_number %}
                         value="{{ form.phone_number }}"
                       {% endif %}
