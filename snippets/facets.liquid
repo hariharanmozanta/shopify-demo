@@ -65,6 +65,7 @@
                   {%- endunless -%}
                   <facet-remove class="active-facets__button-wrapper">
                     <a href="{{ results_url }}" class="active-facets__button-remove underlined-link">
+                    {% render 'icon-clear-all' %}
                       <span>{{ 'products.facets.clear_all' | t }}</span>
                     </a>
                   </facet-remove>
@@ -122,21 +123,12 @@
                       open
                     {% endif %}
                   >
-                    <summary
-                      class="facets__summary caption-large focus-offset"
-                      aria-label="{{ filter.label }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})"
-                    >
-                      <div>
-                        <span>
-                          {{- filter.label | escape }}
-                          {%- if filter_type == 'vertical' -%}
-                            <span class="facets__selected no-js-hidden{% if filter.active_values.size == 0 %} hidden{% endif %}">
-                              ({{ filter.active_values.size }})</span
-                            >
-                          {%- endif -%}
-                        </span>
-                        {% render 'icon-caret' %}
+                    <summary aria-label="{{ filter.label }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})">
+                      <div class="filter">
+                      <ul class="nav-collapse nav flex-column">
+                     <li class="nav-item"><a a-id="pl-s2pl-fl-Price-na" class="nav-link">{{- filter.label | escape }}<svg class="icon sm fill-black chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g id="Group_2" data-name="Group 2" transform="translate(48 -24) rotate(90)"><rect id="Rectangle_1" data-name="Rectangle 1" width="24" height="24" transform="translate(24 24)" fill="#fff" opacity="0"></rect><path id="Path_260" data-name="Path 260" d="M10.079,22.625l8.344-8.4,8.346,8.4a2.131,2.131,0,0,0,3.033,0,2.168,2.168,0,0,0,0-3.054L19.929,9.631a2.131,2.131,0,0,0-3.033,0L7.025,19.572a2.16,2.16,0,0,0,3.054,3.054Z" transform="translate(17.57 20.003)"></path></g></svg></a></li>
                       </div>
+                      </ul>
                     </summary>
                     <div
                       id="Facet-{{ forloop.index }}-{{ section.id }}"
@@ -318,11 +310,12 @@
                       open
                     {% endif %}
                   >
-                    <summary class="facets__summary caption-large focus-offset">
-                      <div>
-                        <span>{{ filter.label | escape }}</span>
-                        {% render 'icon-caret' %}
+                     <summary aria-label="{{ filter.label }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})">
+                      <div class="filter">
+                      <ul class="nav-collapse nav flex-column">
+                     <li class="nav-item"><a a-id="pl-s2pl-fl-Price-na" class="nav-link">{{- filter.label | escape }}<svg class="icon sm fill-black chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g id="Group_2" data-name="Group 2" transform="translate(48 -24) rotate(90)"><rect id="Rectangle_1" data-name="Rectangle 1" width="24" height="24" transform="translate(24 24)" fill="#fff" opacity="0"></rect><path id="Path_260" data-name="Path 260" d="M10.079,22.625l8.344-8.4,8.346,8.4a2.131,2.131,0,0,0,3.033,0,2.168,2.168,0,0,0,0-3.054L19.929,9.631a2.131,2.131,0,0,0-3.033,0L7.025,19.572a2.16,2.16,0,0,0,3.054,3.054Z" transform="translate(17.57 20.003)"></path></g></svg></a></li>
                       </div>
+                      </ul>
                     </summary>
                     <div
                       id="Facet-{{ forloop.index }}-{{ section.id }}"
