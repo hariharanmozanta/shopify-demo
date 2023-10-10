@@ -1,10 +1,23 @@
 {
   "sections": {
     "main": {
-      "type": "main-404"
+      "type": "main-404",
+      "disabled": true,
+      "settings": {
+      }
+    },
+    "38e33d97-1c88-40fc-81e6-d29a5e590cb5": {
+      "type": "newsletter",
+      "settings": {
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "38e33d97-1c88-40fc-81e6-d29a5e590cb5"
   ]
 }
