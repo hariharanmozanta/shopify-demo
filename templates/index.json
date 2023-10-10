@@ -3,7 +3,6 @@
     "e20e321e-deca-4186-833f-42187985f9f8": {
       "type": "image-banner",
       "settings": {
-        "image": "shopify:\/\/shop_images\/2736064_f70c9bde-41c4-4c96-8d74-e681b35df656.jpg",
         "image_overlay_opacity": 20,
         "image_height": "medium",
         "desktop_content_position": "middle-center",
@@ -37,7 +36,7 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "enable_quick_add": false,
+        "enable_quick_add": true,
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 28,

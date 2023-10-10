@@ -181,10 +181,10 @@
     "facets": {
       "apply": "Apply",
       "clear": "Clear",
-      "clear_all": "Remove all",
+      "clear_all": "Clear All Filters",
       "from": "From",
       "filter_and_sort": "Filter and sort",
-      "filter_by_label": "Filter:",
+      "filter_by_label": "FILTER BY",
       "filter_button": "Filter",
       "filters_selected": {
         "one": "{{ count }} selected",
