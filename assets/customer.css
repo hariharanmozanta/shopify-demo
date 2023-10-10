@@ -865,3 +865,12 @@ h5 {
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
 }
+
+.eye-icon {
+  right: 5rem;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.73em;
+  cursor: pointer;
+}

@@ -1,5 +1,5 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
-
+{{ 'registerValidation.js' | asset_url | script_tag }}
 {%- style -%}
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -85,6 +85,7 @@
                       {% endif %}
                       autocomplete="given-name"
                       placeholder="Eg.John Doe"
+                      maxlength="30"
                       required
                     >
                   </div>
@@ -105,6 +106,26 @@
                       </label>
                     </div>
                   {% endcomment %}
+
+                  <div class="mb-3">
+                    <label for="phone" class="d-flex align-items-center form-label"
+                      >Phone Number<span class="text-danger">&nbsp;*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="customer[note][Phone]"
+                      id="phone_number"
+                      {% if form.phone_number %}
+                        value="{{ form.phone_number }}"
+                      {% endif %}
+                      pattern="(\+\d{1,4})?\(\d{2}\)-\d{6}"
+                      maxlength="16"
+                      placeholder="Phone Number"
+                      required
+                    >
+                    <span id="validation_status_phone"></span>
+                  </div>
                   <div class="mb-3">
                     <label for="email" class="form-label">Email address <span class="text-danger">*</span></label>
                     <input
@@ -119,57 +140,46 @@
                       autocapitalize="off"
                       autocomplete="email"
                       aria-required="true"
-                      {% if form.errors contains 'email' %}
-                        aria-invalid="true"
-                        aria-describedby="RegisterForm-email-error"
-                      {% endif %}
+                      {% comment %}
+                        {% if form.errors contains 'email' %}
+                          aria-invalid="true"
+                          aria-describedby="RegisterForm-email-error"
+                        {% endif %}
+                      {% endcomment %}
                       placeholder="{{ 'customer.register.email' | t }}"
                       required
                     >
-                  </div>
-                  {%- if form.errors contains 'email' -%}
-                    <span id="RegisterForm-email-error" class="form__message">
-                      <svg aria-hidden="true" focusable="false">
-                        <use href="#icon-error" />
-                      </svg>
-                      {{ form.errors.translated_fields.email | capitalize }}
-                      {{ form.errors.messages.email }}.
-                    </span>
-                  {%- endif -%}
-                  <div class="mb-3">
-                    <label for="password" class="d-flex align-items-center form-label"
-                      >Phone Number<span class="text-danger">&nbsp;*</span></label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="customer[note][Phone]"
-                      id="Phone"
-                      {% if form.phone_number %}
-                        value="{{ form.phone_number }}"
-                      {% endif %}
-                      autocomplete="family-name"
-                      placeholder="Phone Number"
-                      required
-                    >
+                    <span id="validation_status_email"></span>
+                    {%- if form.errors contains 'email' -%}
+                      <span id="RegisterForm-email-error" class="form__message">
+                        <svg aria-hidden="true" focusable="false">
+                          <use href="#icon-error" />
+                        </svg>
+                        {{ form.errors.translated_fields.email | capitalize }}
+                        {{ form.errors.messages.email }}.
+                      </span>
+                    {%- endif -%}
                   </div>
                   <div class="mb-3">
                     <label for="password" class="d-flex align-items-center form-label"
                       >Password <span class="text-danger">&nbsp;*</span></label
                     >
-                    <input
-                      type="password"
-                      class="form-control"
-                      name="customer[password]"
-                      id="RegisterForm-password"
-                      aria-required="true"
-                      {% if form.errors contains 'password' %}
-                        aria-invalid="true"
-                        aria-describedby="RegisterForm-password-error"
-                      {% endif %}
-                      placeholder="{{ 'customer.register.password' | t }}"
-                      required
-                    >
+                    <div style="display:flex;">
+                      <input
+                        type="password"
+                        class="form-control"
+                        name="customer[password]"
+                        id="RegisterForm-password"
+                        aria-required="true"
+                        {% if form.errors contains 'password' %}
+                          aria-invalid="true"
+                          aria-describedby="RegisterForm-password-error"
+                        {% endif %}
+                        placeholder="{{ 'customer.register.password' | t }}"
+                        required
+                      >
+                      <i class="bi bi-eye-slash eye-icon" id="togglePassword"></i>
+                    </div>
                   </div>
                   {%- if form.errors contains 'password' -%}
                     <span id="RegisterForm-password-error" class="form__message">
@@ -181,9 +191,17 @@
                     </span>
                   {%- endif -%}
                   <div class="mb-3">
-                    <button class="btn btn-primary d-block w-100" style="--border-offset: none;border-radius: 2.5rem;">
+                    <button
+                      id="btnSubmit"
+                      class="btn btn-primary d-block w-100"
+                      style="--border-offset: none;border-radius: 2.5rem;"
+                    >
                       {{ 'customer.register.submit' | t }}
                     </button>
+                  </div>
+                  <div class="text-center text-muted fs-lg mt-3 ">
+                    Already have an account
+                    <a class="link primary text-decoration-underline" href="/account/login"><b>Sign In</b></a>
                   </div>
                 {%- endform -%}
               </div>
